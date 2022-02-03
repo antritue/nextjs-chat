@@ -1,9 +1,7 @@
 import React, { useContext } from 'react';
-
 import { Context } from '../context';
-
 import { useRouter } from 'next/router';
-
+import Head from 'next/head';
 import axios from 'axios';
 
 export default function Auth() {
@@ -31,33 +29,39 @@ export default function Auth() {
   };
 
   return (
-    <div className="background">
-      <div className="auth-container">
-        <form className="auth-form" onSubmit={(e) => handleSubmit(e)}>
-          <div className="auth-title">NextJS Chat</div>
+    <>
+      <Head>
+        <title>Easy Chat</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <div className="background">
+        <div className="auth-container">
+          <form className="auth-form" onSubmit={(e) => handleSubmit(e)}>
+            <div className="auth-title">Easy Chat</div>
 
-          <div className="input-container">
-            <input
-              placeholder="Email"
-              className="text-input"
-              onChange={(e) => setUsername(e.target.value)}
-            />
-          </div>
+            <div className="input-container">
+              <input
+                placeholder="Email"
+                className="text-input"
+                onChange={(e) => setUsername(e.target.value)}
+              />
+            </div>
 
-          <div className="input-container">
-            <input
-              type="password"
-              placeholder="Password"
-              className="text-input"
-              onChange={(e) => setSecret(e.target.value)}
-            />
-          </div>
+            <div className="input-container">
+              <input
+                type="password"
+                placeholder="Password"
+                className="text-input"
+                onChange={(e) => setSecret(e.target.value)}
+              />
+            </div>
 
-          <button type="submit" className="submit-button">
-            Login / Sign Up
-          </button>
-        </form>
+            <button type="submit" className="submit-button">
+              Login / Sign Up
+            </button>
+          </form>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
